@@ -1,0 +1,61 @@
+[id="generating-icsp-object-scoped-to-a-registry_{context}"]
+= Widening the mirror registry scope of the ImageContentSourcePolicy object
+
+Use the `--icsp-scope=registry` flag with the `oc adm catalog mirror` command to widen the mirror registry scope in the `ImageContentSourcePolicy` object. This minimizes the number of times the cluster nodes are rebooted when a registry entry is updated.
+
+The `oc adm catalog mirror` command generates an `ImageContentSourcePolicy` resource that maps the original container image repository to a new location where it is mirrored, typically inside a disconnected environment. When a new or modified `ImageContentSourcePolicy` resource is applied to a cluster, it is converted into a configuration file for CRI-O and placed onto each node. When you update the configuration file for a node, the node reboots. A widely scoped `ImageContentSourcePolicy` resource reduces the number of times the resource needs to change and thus reduces the number of times cluster nodes have to reboot.
+
+.Prerequisites
+
+* Install the {product-title} CLI `oc`.
+* Log in as a user with `cluster-admin` privileges.
+* Configure a local image catalog repository for use in your disconnected cluster. See xref:../operators/admin/olm-restricted-networks.adoc#olm-restricted-networks[Using Operator Lifecycle Manager on restricted networks] for more details.
+
+.Procedure
+
+To widen the mirror registry scope in the `ImageContentSourcePolicy` resource, do the following:
+
+. Run the following command, specifying values for <local_registery> and <pull_secret_file>:
++
+[source,terminal]
+----
+$ oc adm catalog mirror <local_registery>/olm/redhat-operators:v1 <local_registery> -a <pull_secret_file> --icsp-scope=registry
+----
++
+<1> <local_registery> is the local registry you have configured for your disconnected cluster, for example `local.registry:5000`.
+<2> <pull_secret_file> is the `registry.redhat.io` pull secret in `.json` file format downloaded from the link:https://cloud.redhat.com/openshift/install/pull-secret[Pull Secret] page on the {cloud-redhat-com} site.
++
+.Expected result
+The `oc adm catalog mirror` command creates a `/redhat-operator-index-manifests` directory and generates `imageContentSourcePolicy.yaml` and `mapping.txt` files.
+
+. Change to the newly created `/redhat-operator-index-manifests` directory, and apply the customized `ImageContentSourcePolicy` resource:
++
+[source,terminal]
+----
+$ oc apply -f imageContentSourcePolicy.yaml
+----
+
+.Verification
+Verify that the `ImageContentSourcePolicy` change is successfully applied:
+
+[source,terminal]
+----
+$ oc get ImageContentSourcePolicy
+----
+
+.Expected output
+[source,yaml]
+----
+apiVersion: operator.openshift.io/v1alpha1
+kind: ImageContentSourcePolicy
+metadata:
+  name: redhat-operators
+spec:
+  repositoryDigestMirrors:
+  - mirrors:
+    - local.registry:5000
+    source: registry.redhat.io
+----
+
+After you update the `ImageContentSourcePolicy` resource, the new settings are automatically deployed to each node and the cluster starts using the mirrored repository for requests to the source repository.
+
