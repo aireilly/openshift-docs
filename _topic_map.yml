@@ -2017,7 +2017,7 @@ Topics:
   Distros: openshift-webscale
 - Name: Zero Touch Provisioning
   File: ztp-zero-touch-provisioning
-  Distros: openshift-webscale
+  #Distros: openshift-webscale
 ---
 Name: Backup and restore
 Dir: backup_and_restore
