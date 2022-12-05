@@ -9,29 +9,85 @@ As an OpenShift support engineer or developer, you want to inspect Kubernetes-sp
 
 == Locating the encapsulated namespaces
 
-Any monitoring tool that relies on the ability to run in the host OS and have visibility of mountpoints created by Kubelet, the Container Runtime, or containers themselves, will need to enter the container mount namespace in order to see these mountpoints.
+Any monitoring tool that relies on the ability to run in the host OS and have visibility of mountpoints created by Kubelet, the Container Runtime, or containers themselves, will need to enter the container mount namespace in order to see these mountpoints. The provided `kubensenter` script will execute another command inside the Kubernetes mountpoint and can be used to adapt any existing tools.
+The `kubensenter` script is aware of the state of the mount encapsulation feature status, and is safe to run even if encapsulation is not enabled. In that case it will simply execute the provided command in the default mount namespace.
+For example, if a systemd service needs to run inside the new Kubernetes mount namespace, you should edit the service file and prefix the `ExecStart=` command line with `kubensenter`.
 
-[source,yaml]
+[source,terminal]
 ----
-  sh-4.4# readlink /proc/$(pgrep kubelet)/ns/mnt
-
-  sh-4.4# readlink /proc/$(pgrep crio)/ns/mnt
+[Unit]
+Description=Example service
+[Service]
+ExecStart=/usr/bin/kubensenter /path/to/original/command arg1 arg2
 ----
 
 
 == Inspecting the encapsulated namespaces
 
-An administrator logged in to the host OS wishing to obtain information about the Kubernetes system for debugging or auditing purposes will need to be aware of the new mount namespace, and will need to run `nsenter` to view or interact with these mountpoints.
+An administrator logged in to the host OS wishing to obtain information about the Kubernetes system for debugging or auditing purposes will need to be aware of the new mount namespace. A shell originating in a container, such as `oc debug` will already be inside the Kubernetes namespace. A shell originating in an SSH session will be in the default namespace, and an administrator will need to run the `kubensenter` script as root to view or interact with these mountpoints.
+The `kubensenter` script is aware of the state of the mount encapsulation feature status, and is safe to run even if encapsulation is not enabled. In that case it will simply execute the shell or requested command in the default mount namespace.
 
-Issue the following command:
-[source,yaml]
+
+To run a single command inside the Kubernetes namespace, provide the command and any arguments to the `kubensenter` script.  For example, to run the `findmnt` command inside the Kubernetes namespace, issue the following command:
+[source,terminal]
 ----
-$ nsenter --mount=/run/container-mount-namespace/mnt ... <parameters ...> ...
+$ sudo kubensenter findmnt
 ----
 
-Example output:
+.Example output
 
-[source,yaml]
+[source,terminal]
 ----
-output from $ nsenter --mount=/run/container-mount-namespace/mnt ... <parameters ...> here
+  kubensenter: Autodetect: kubens.service namespace found at /run/kubens/mnt
+  TARGET                                                                                                                                                   SOURCE                 FSTYPE     OPTIONS
+  /                                                                                                                                                        /dev/sda4[/ostree/deploy/rhcos/deploy/32074f0e8e5ec453e56f5a8a7bc9347eaa4172349ceab9c22b709d9d71a3f4b0.0]
+  |                                                                                                                                                                               xfs        rw,relatime,seclabel,attr2,inode64,logbufs=8,logbsize=32k,prjquota
+  |-/etc                                                                                                                                                   /dev/sda4[/ostree/deploy/rhcos/deploy/32074f0e8e5ec453e56f5a8a7bc9347eaa4172349ceab9c22b709d9d71a3f4b0.0/etc]
+  |                                                                                                                                                                               xfs        rw,relatime,seclabel,attr2,inode64,logbufs=8,logbsize=32k,prjquota
+  |-/usr                                                                                                                                                   /dev/sda4[/ostree/deploy/rhcos/deploy/32074f0e8e5ec453e56f5a8a7bc9347eaa4172349ceab9c22b709d9d71a3f4b0.0/usr]
+  |                                                                                                                                                                               xfs        ro,relatime,seclabel,attr2,inode64,logbufs=8,logbsize=32k,prjquota
+  |-/sysroot                                                                                                                                               /dev/sda4              xfs        ro,relatime,seclabel,attr2,inode64,logbufs=8,logbsize=32k,prjquota
+  | `-/sysroot/ostree/deploy/rhcos/var                                                                                                                     /dev/sda4[/ostree/deploy/rhcos/var]
+  |                                                                                                                                                                               xfs        rw,relatime,seclabel,attr2,inode64,logbufs=8,logbsize=32k,prjquota
+  |-/sys                                                                                                                                                   sysfs                  sysfs      rw,nosuid,nodev,noexec,relatime,seclabel
+  | |-/sys/kernel/security                                                                                                                                 securityfs             securityfs rw,nosuid,nodev,noexec,relatime
+  | |-/sys/fs/cgroup                                                                                                                                       tmpfs                  tmpfs      ro,nosuid,nodev,noexec,seclabel,mode=755
+  | | |-/sys/fs/cgroup/systemd                                                                                                                             cgroup                 cgroup     rw,nosuid,nodev,noexec,relatime,seclabel,xattr,release_agent=/usr/lib/systemd/systemd-cgroups-agent,name=systemd
+  | | |-/sys/fs/cgroup/hugetlb                                                                                                                             cgroup                 cgroup     rw,nosuid,nodev,noexec,relatime,seclabel,hugetlb
+  | | |-/sys/fs/cgroup/net_cls,net_prio                                                                                                                    cgroup                 cgroup     rw,nosuid,nodev,noexec,relatime,seclabel,net_cls,net_prio
+  | | |-/sys/fs/cgroup/memory                                                                                                                              cgroup                 cgroup     rw,nosuid,nodev,noexec,relatime,seclabel,memory
+  | | |-/sys/fs/cgroup/devices                                                                                                                             cgroup                 cgroup     rw,nosuid,nodev,noexec,relatime,seclabel,devices
+  | | |-/sys/fs/cgroup/pids                                                                                                                                cgroup                 cgroup     rw,nosuid,nodev,noexec,relatime,seclabel,pids
+  | | |-/sys/fs/cgroup/cpuset                                                                                                                              cgroup                 cgroup     rw,nosuid,nodev,noexec,relatime,seclabel,cpuset
+  | | `-/sys/fs/cgroup/freezer                                                                                                                             cgroup                 cgroup     rw,nosuid,nodev,noexec,relatime,seclabel,freezer
+  | |-/sys/fs/pstore                                                                                                                                       pstore                 pstore     rw,nosuid,nodev,noexec,relatime,seclabel
+  | |-/sys/fs/bpf                                                                                                                                          bpf                    bpf        rw,nosuid,nodev,noexec,relatime,mode=700
+  | |-/sys/kernel/tracing                                                                                                                                  none                   tracefs    rw,relatime,seclabel
+  | |-/sys/kernel/config                                                                                                                                   configfs               configfs   rw,relatime
+  | |-/sys/fs/selinux                                                                                                                                      selinuxfs              selinuxfs  rw,relatime
+  | |-/sys/kernel/debug                                                                                                                                    debugfs                debugfs    rw,relatime,seclabel
+  | `-/sys/fs/fuse/connections                                                                                                                             fusectl                fusectl    rw,relatime
+  |-/dev                                                                                                                                                   devtmpfs               devtmpfs   rw,nosuid,seclabel,size=16317680k,nr_inodes=4079420,mode=755
+  | |-/dev/shm                                                                                                                                             tmpfs                  tmpfs      rw,nosuid,nodev,seclabel
+  | |-/dev/pts                                                                                                                                             devpts                 devpts     rw,nosuid,noexec,relatime,seclabel,gid=5,mode=620,ptmxmode=000
+  | |-/dev/mqueue                                                                                                                                          mqueue                 mqueue     rw,relatime,seclabel
+  | `-/dev/hugepages                                                                                                                                       hugetlbfs              hugetlbfs  rw,relatime,seclabel,pagesize=2M
+  |-/run                                                                                                                                                   tmpfs                  tmpfs      rw,nosuid,nodev,seclabel,mode=755
+  | |-/run/containers/storage/overlay-containers/35f65a7e081f135c3809350240e94cf6113b6e283f34191f8a5976041a52430e/userdata/shm                             shm                    tmpfs      rw,nosuid,nodev,noexec,relatime,context="system_u:object_r:container_file_t:s0:c284,c530",size=65536k
+  | |-/run/utsns/f6f4d4cd-a701-462b-87dd-ec645b49f6b0                                                                                                      nsfs[uts:[4026532370]] nsfs       rw,seclabel
+  | |-/run/ipcns/f6f4d4cd-a701-462b-87dd-ec645b49f6b0                                                                                                      nsfs[ipc:[4026532371]] nsfs       rw,seclabel
+  | |-/run/netns/f6f4d4cd-a701-462b-87dd-ec645b49f6b0                                                                                                      nsfs[net:[4026531992]] nsfs       rw,seclabel
+  | |-/run/containers/storage/overlay-containers/ec566c5b5e84eebe1f2e0f9259ac0096e87f6e49041f3f136379f7efbe4e74f2/userdata/shm                             shm                    tmpfs      rw,nosuid,nodev,noexec,relatime,context="system_u:object_r:container_file_t:s0:c294,c852",size=65536k
+  | |-/run/containers/storage/overlay-containers/ba6dc1dd63e5078fdb46b4a492b2172d63b10d26a4e8fb613ab301658ef3d1b2/userdata/shm                             shm                    tmpfs
 ----
+
+To start a new interactive shell inside the Kubernetes namespace, run the `kubensenter` script without any arguments:
+[source,terminal]
+----
+$ sudo kubensenter
+----
+.Example output
+[source,terminal]
+----
+kubensenter: Autodetect: kubens.service namespace found at /run/kubens/mnt
+#

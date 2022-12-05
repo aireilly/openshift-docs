@@ -5,7 +5,7 @@
 [id="optimizing-cpu-usage_{context}"]
 = Encapsulating mount namespaces
 
-Mount namespaces are used to isolate mount points so that processes in different namespaces cannot view each others' files. Encapsulation is the process of moving mount namespaces to an alternative location, known to the owner but hidden from intrusive visitors.
+Mount namespaces are used to isolate mount points so that processes in different namespaces cannot view each others' files. Encapsulation is the process of moving Kubernetes mount namespaces to an alternative location where they will not be constantly scanned by the host operating system.
 
 The host operating system uses `systemd` to constantly scan all mount namespaces: both the standard Linux mounts and the numerous mounts that Kubernetes uses to operate. The current implementation of Kubelet and CRI-O both use the top-level namespace for all container and Kubelet mountpoints. However, encapsulating these container-specific mountpoints in a private namespace reduces `systemd` overhead with no difference in functionality. Using a separate mount namespace for both CRI-O and Kubelet can encapsulate container-specific mounts from any `systemd` or other host OS interaction.
 
@@ -35,4 +35,4 @@ image::after-k8s-mount-propagation.png[After encapsulation]
 
 * Container 2, configured with host-to-container mount propagation, can access `systemd` and `host` mounts, Kubelet and CRI-O mounts. A mount originating in Container 2, such as `/run/b`, is not visible to any other context.
 
-* Container 3, configured with no mount propagation, has no visibility of external mount points. A mount originating in Container3, such as `/run/c`, is not visible to any other context.
+* Container 3, configured with no mount propagation, has no visibility of external mount points. A mount originating in Container 3, such as `/run/c`, is not visible to any other context.

@@ -53,23 +53,25 @@ You can configure mount namespace encapsulation so that the cluster runs with le
 <1> If `enabled` is set to true, encapsulation is in effect for all control plane (previously known as "master") nodes.
 <2> If `enabled` is set to false, encapsulation is disabled for all worker nodes.
 
-Apply the mount namespace `MachineConfig` CR:
-
+. Apply the mount namespace `MachineConfig` CR:
++
 [source,terminal]
 ----
 $ oc apply -f mount_namespace_config.yaml
 ----
+
 .Example output
 [source,terminal]
 ----
 machineconfig.machineconfiguration.openshift.io/99-kubens-master created
 machineconfig.machineconfiguration.openshift.io/99-kubens-worker created
 ----
-Monitor the state of `MachineConfig` while it is updated. This may take between 5 minutes and half an hour. After applying the `MachineConfig` CR, check that the status of the `MachineConfig` pool (`mcp`) has changed `UPDATING` to `True` as shown below:
+. The `MachineConfig` CR can take up to 30 minutes to finish being applied in the cluster. You can check the status of the `MachineConfig` CR by running the following command:
 [source,terminal]
 ----
 $ oc get mcp
 ----
+
 .Example output
 [source,terminal]
 ----
@@ -82,6 +84,7 @@ Prior to verifying whether the feature has been successfully enabled/disabled, w
 ----
 $ oc wait --for=condition=Updated mcp --all --timeout=30m
 ----
+
 .Example output
 [source,terminal]
 ----
@@ -106,7 +109,8 @@ Check `systemd` mount namespace:
 ----
   sh-4.4# readlink /proc/1/ns/mnt
 ----
-.Example output:
+
+.Example output
 [source,terminal]
 ----
   mnt:[4026531953]
@@ -116,7 +120,8 @@ Check `kubelet` mount namespace:
 ----
   sh-4.4# readlink /proc/$(pgrep kubelet)/ns/mnt
 ----
-.Example output:
+
+.Example output
 [source,terminal]
 ----
   mnt:[4026531840]
@@ -126,7 +131,8 @@ Check `crio` mount namespace:
 ----
   sh-4.4# readlink /proc/$(pgrep crio)/ns/mnt
 ----
-.Example output:
+
+.Example output
 [source,terminal]
 ----
   mnt:[4026531840]
