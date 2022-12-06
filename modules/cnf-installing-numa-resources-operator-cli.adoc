@@ -6,7 +6,7 @@
 [id="cnf-installing-numa-resources-operator-cli_{context}"]
 = Installing the NUMA Resources Operator using the CLI
 
-As a cluster administrator, you can install the Operator using the CLI.
+As a cluster administrator, you can install the canned Operator using the CLI.
 
 .Prerequisites
 
