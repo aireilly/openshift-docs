@@ -2,9 +2,10 @@
 //
 // * networking/using-ptp.adoc
 
-:_content-type: PROCEDURE
 [id="cnf-installing-amq-interconnect-messaging-bus_{context}"]
 = Installing the AMQ messaging bus
+
+Oi! hyper-threading is is incorrect.
 
 Oi! hyper-threading is is incorrect.
 
