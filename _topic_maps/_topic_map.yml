@@ -502,30 +502,6 @@ Topics:
     File: uninstalling-cluster-vsphere-installer-provisioned
   - Name: Using the vSphere Problem Detector Operator
     File: using-vsphere-problem-detector-operator
-- Name: Installing on VMC
-  Dir: installing_vmc
-  Distros: openshift-origin,openshift-enterprise
-  Topics:
-  - Name: Preparing to install on VMC
-    File: preparing-to-install-on-vmc
-  - Name: Installing a cluster on VMC
-    File: installing-vmc
-  - Name: Installing a cluster on VMC with customizations
-    File: installing-vmc-customizations
-  - Name: Installing a cluster on VMC with network customizations
-    File: installing-vmc-network-customizations
-  - Name: Installing a cluster on VMC in a restricted network
-    File: installing-restricted-networks-vmc
-  - Name: Installing a cluster on VMC with user-provisioned infrastructure
-    File: installing-vmc-user-infra
-  - Name: Installing a cluster on VMC with user-provisioned infrastructure and network customizations
-    File: installing-vmc-network-customizations-user-infra
-  - Name: Installing a cluster on VMC in a restricted network with user-provisioned infrastructure
-    File: installing-restricted-networks-vmc-user-infra
-  - Name: Installing a three-node cluster on VMC
-    File: installing-vmc-three-node
-  - Name: Uninstalling a cluster on VMC
-    File: uninstalling-cluster-vmc
 - Name: Installing on any platform
   Dir: installing_platform_agnostic
   Distros: openshift-origin,openshift-enterprise
@@ -564,7 +540,7 @@ Topics:
   File: bare-metal-configuration
 - Name: Configuring multi-architecture compute machines on an OpenShift cluster
   Distros: openshift-enterprise
-  File: multi-architecture-configuration 
+  File: multi-architecture-configuration
 - Name: Enabling encryption on a vSphere cluster
   File: vsphere-post-installation-encryption
 - Name: Machine configuration tasks
@@ -2299,7 +2275,7 @@ Topics:
     File: nodes-cma-autoscaling-custom-trigger
   - Name: Understanding the custom metrics autoscaler trigger authentications
     File: nodes-cma-autoscaling-custom-trigger-auth
-  - Name: Pausing the custom metrics autoscaler 
+  - Name: Pausing the custom metrics autoscaler
     File: nodes-cma-autoscaling-custom-pausing
   - Name: Gathering audit logs
     File: nodes-cma-autoscaling-custom-audit-log
