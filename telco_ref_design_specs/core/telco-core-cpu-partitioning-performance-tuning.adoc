@@ -1,0 +1,11 @@
+:_content-type: ASSEMBLY
+[id="telco-core-ref-components"]
+= Telco core reference design components
+include::_attributes/common-attributes.adoc[]
+:context: core-ref-design-components
+
+toc::[]
+
+The following sections describe the various {product-title} components and configurations that you use to configure and deploy clusters to run RAN DU workloads.
+
+include::modules/telco-core-cpu-partitioning-performance-tuning.adoc[leveloffset=+1]

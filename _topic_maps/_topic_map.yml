@@ -2757,6 +2757,16 @@ Topics:
   File: ztp-ran-reference-design
 - Name: Telco core reference design specification
   File: cnf-core-reference-design
+- Name: Telco core reference design overview
+  File: telco-core-ref-design-spec
+- Name: Use case model overview
+  File: telco-core-overview
+- Name: Reference design components
+  File: telco-core-cpu-partitioning-performance-tuning
+- Name: Reference design configuration CRs
+  File: telco-core-ref-du-crs
+- Name: Reference design validation artifacts
+  File: telco-core-ref-validation-artifacts
 ---
 Name: Specialized hardware and driver enablement
 Dir: hardware_enablement
