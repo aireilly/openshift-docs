@@ -1,0 +1,20 @@
+// Module included in the following assemblies:
+//
+// * telco_ref_design_specs/ran/telco-core-ref-components.adoc
+
+:_content-type: REFERENCE
+[id="telco-core-logging_{context}"]
+= Logging
+
+New in this release::
+
+Description::
+
+The ClusterLogging operator enables collection and shipping of logs off the edge node for remote archival and analysis. The reference configuration ships audit and infrastructure logs to a remote archive via kafka.
+
+Limits and requirements::
+
+
+Engineering considerations::
+* The impact of cluster CPU use will be based on the number/size of logs generated and the amount of log filtering configured.
+* The reference configuration does not include shipping of application logs. Inclusion of application logs in the configuration requires evaluation of the application logging rate and sufficient additional CPU resources allocated to the reserved set.

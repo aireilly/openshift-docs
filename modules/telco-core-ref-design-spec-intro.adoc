@@ -1,0 +1,18 @@
+// Module included in the following assemblies:
+//
+// * telco_ref_design_specs/ran/telco-ran-ref-design-spec.adoc
+
+:_content-type: REFERENCE
+[id="telco-ran-core-design-spec-intro_{context}"]
+= Reference design scope
+
+The telco core reference design specification describes the set of released features and supported configurations that are engineered and Telco QE validated for the described use model.
+The configurations provide a baseline {product-title} installation that meets the feature and KPI targets for the use model.
+Expected variations are described where applicable.
+The validation of this reference configuration includes many long duration and scale tests.
+
+[NOTE]
+====
+The validated reference configuration is updated for each major Y-stream release of {product-title}.
+Z-stream patch releases are periodically re-tested against this reference configuration including many long duration validations.
+====

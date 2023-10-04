@@ -1,0 +1,29 @@
+:_content-type: ASSEMBLY
+[id="telco-ran-rds-overview"]
+= Telco core use case model overview
+include::_attributes/common-attributes.adoc[]
+:context: ran-core-design-overview
+
+toc::[]
+
+Use the following information to plan RAN DU workloads, cluster resources, and hardware specifications for the hub cluster and managed {sno} clusters.
+
+[NOTE]
+====
+The DU workload is described in more detail in xref:../../telco_ref_design_specs/ran/telco-ran-du-overview.adoc#telco-ran-du-application-workloads_ran-ref-design-overview[DU application workload limits].
+
+DU worker nodes have Intel Ice Lake 2.20 GHz or better CPUs with firmware tuned for maximum performance.
+====
+
+include::modules/telco-ran-measured-kpi-results.adoc[leveloffset=+1]
+
+[role="_additional-resources"]
+.Additional resources
+
+* For more information, see xref:../../telco_ref_design_specs/ran/telco-ran-ref-validation-artifacts.html#telco-ran-ref-config-kpi-testing_ran-ref-design-validation[KPI testing results].
+
+include::modules/telco-ran-managed-cluster-resources.adoc[leveloffset=+1]
+
+include::modules/telco-ran-hub-cluster-management.adoc[leveloffset=+1]
+
+include::modules/telco-ran-du-application-workloads.adoc[leveloffset=+1]

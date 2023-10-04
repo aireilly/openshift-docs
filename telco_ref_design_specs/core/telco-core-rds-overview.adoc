@@ -1,0 +1,15 @@
+:_content-type: ASSEMBLY
+[id="telco-core-ref-design-overview"]
+= Telco core reference design overview
+include::_attributes/common-attributes.adoc[]
+:context: core-ref-design-overview
+
+toc::[]
+
+The telco core reference design configures a {product-title} cluster running on commodity hardware to host telco core workloads.
+
+include::modules/telco-core-ref-design-spec-intro.adoc[leveloffset=+1]
+
+include::modules/telco-core-deviations-from-the-ref-design.adoc[leveloffset=+1]
+
+include::modules/telco-core-414-whats-new-ref-design.adoc[leveloffset=+1]

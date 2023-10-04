@@ -1,0 +1,32 @@
+// Module included in the following assemblies:
+//
+// * telco_ref_design_specs/ran/telco-ran-ref-design-spec.adoc
+
+:_content-type: CONCEPT
+[id="telco-core-deviations-from-the-ref-design_{context}"]
+= Deviations from the reference design
+
+Deviating from the validated reference design can have significant impact beyond the specific component or feature that you change.
+
+[IMPORTANT]
+====
+Red Hat prioritizes the servicing of requests on deviations based on customer engagement priorities.
+
+You request deviations through requests for enhancement (RFEs) or support exceptions.
+Approval for deviations is not guaranteed.
+====
+
+Deviation from the reference design can have some or all of the following consequences:
+
+* It can take a long time to resolve customer issues.
+
+* Escalations with key partners at executive levels might be required.
+
+* There is a risk of missing project service-level agreements (SLAs), project deadlines, end provider performance requirements, and so on.
+
+* All unapproved deviations are escalated to the VP of Ecosystem Engineering.
+
+[NOTE]
+====
+Out of tree drivers are not supported.
+====

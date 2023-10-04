@@ -1,0 +1,37 @@
+// Module included in the following assemblies:
+//
+// * telco_ref_design_specs/ran/telco-core-ref-components.adoc
+
+:_content-type: REFERENCE
+[id="telco-core-storage_{context}"]
+= Storage
+
+Overview::
+Cloud native storage services can be provided by multiple solutions including OpenShift Data Foundation (ODF) from Red Hat or third parties.
+
+OpenShift Data Foundation (ODF) is a Ceph based software-defined storage solution for containers. It provides block storage, file system storage, and on-premises object storage, which can be dynamically provisioned for both persistent and non-persistent data requirements. Telco core applications require persistent storage.
+
+It is important to note that all storage data may not be encrypted in flight. To reduce risk the storage network should be isolated from other cluster networks. The storage network must not be reachable (routable) from other cluster networks, ie only nodes directly attached to the storage network can gain access to it.
+
+== OpenShift Data Foundation
+New in this release::
+* [https://issues.redhat.com/browse/CNF-7760[CNF-7760]] Ability to specify a maximum latency (i.e. c-state) for a low latency pod when using per-pod power management. Previously c-states could only be disabled completely on a per pod basis.
+
+
+Description::
+
+OpenShift Data Foundation (ODF) is a software-defined storage service for containers. For Telco Core clusters storage support is provided by external (storage services running outside the application workload cluster) ODF.
+
+* +++<s>+++placeholder+++</s>+++
+* ODF supports segregation of storage traffic using secondary CNI networks.
+
+Limits and requirements::
+* ODF when running on dual-stack uses IPv4 addressing. [https://access.redhat.com/documentation/en-us/red_hat_openshift_data_foundation/4.13/html-single/4.13_release_notes/index#support_openshift_dual_stack_with_odf_using_ipv4[ref]]
+
+
+Engineering considerations::
+* ODF network traffic should be isolated from other traffic on a dedicated network (eg VLAN isolation).
+
+== Other Storage
+
+Other storage solutions may be used to provide persistent storage for Core clusters. The configuration and integration of these solutions is outside the scope of the RDS. Integration of the storage solution into the Core cluster must include proper sizing and performance analysis to ensure the storage meets overall performance and resource utilization requirements.

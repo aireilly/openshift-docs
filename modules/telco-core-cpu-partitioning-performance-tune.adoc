@@ -3,7 +3,7 @@
 // * telco_ref_design_specs/ran/telco-core-ref-components.adoc
 
 :_content-type: REFERENCE
-[id="telco-core-cpu-partitioning-performance-tuning_{context}"]
+[id="telco-core-cpu-partitioning-performance-tune_{context}"]
 = CPU partitioning and performance tuning
 
 New in this release::

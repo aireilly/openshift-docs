@@ -1,0 +1,23 @@
+// Module included in the following assemblies:
+//
+// * telco_ref_design_specs/ran/telco-core-ref-components.adoc
+
+:_content-type: REFERENCE
+[id="telco-core-sriov_{context}"]
+= SR-IOV
+
+New in this release::
+* [https://issues.redhat.com/browse/CNF-6356[CNF-6356]] Allow the SR-IOV network operator to configure and allocate a subset of virtual functions from a physical function that is configured externally from SR-IOV network operator.
+
+Description::
+
+SR-IOV enables physical network interfaces (PFs) to be divided into multiple virtual interfaces (VFs). VFs can then be assigned to multiple pods in order to achieve higher throughput performance while keeping the pods isolated from each other. The SR-IOV Network Operator provisions and manages SR-IOV CNI, network device plugin and other components of the SR-IOV stack.
+
+Limits and requirements::
+
+* https://docs.openshift.com/container-platform/4.13/networking/hardware_networks/about-sriov.html#nw-sriov-supported-platforms_about-sriov[OCP supported SR-IOV devices]
+* SR-IOV and IOMMU enablement in BIOS – The SR-IOV Network Operator will automatically enable IOMMU on the kernel command line.
+* SR-IOV VFs do not receive link state updates from the PF. If link down detection is needed it must be done at the protocol level.
+
+Engineering considerations::
+* SRIOV interfaces in vfio mode are typically used to enable additional secondary networks for applications that require high throughput or low latency.

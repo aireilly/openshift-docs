@@ -1,0 +1,28 @@
+// Module included in the following assemblies:
+//
+// * telco_ref_design_specs/ran/telco-core-ref-components.adoc
+
+:_content-type: REFERENCE
+[id="telco-core-scheduling_{context}"]
+= Scheduling
+
+New in this release::
+
+* [https://issues.redhat.com/browse/CNF-4804[CNF-4804] (4.13) https://issues.redhat.com/browse/CNF-5722[CNF-5722] (4.12.24)] 4.13 and 4.14 https://docs.openshift.com/container-platform/4.13/scalability_and_performance/cnf-numa-aware-scheduling.html[NUMA aware scheduling] was marked as GA
+* [https://issues.redhat.com/browse/CNF-7741[CNF-7741]] Ability to not advertise the NUMA node where an SRIOV Virtual Function resides to the Topology Manager. This allows workload to have reserved CPU and memory on a different node than the network interface, paying a little performance slowdown in favor of scheduling flexibility. Feature is keyed off the +excludeTopology+ field in SriovNetworkNodePolicy.
+
+Description::
+
+* The scheduler is a cluster wide component responsible for selecting the right node for a given workload. It is a core part of the platform and does not require any specific configuration in the common deployment scenarios. However there are few specific use cases described below.
+
+Limits and requirements::
+
+* The default scheduler does not understand the NUMA locality of workloads. It only knows about the sum of all free resources on a worker node. This might cause workloads to be rejected when scheduled to a node with https://docs.openshift.com/container-platform/4.13/scalability_and_performance/using-cpu-manager.html#topology_manager_policies_using-cpu-manager-and-topology_manager[Topology manager policy] set to single-numa-node or restricted.
+** To give an example: Consider a pod requesting 6 CPUs and being scheduled to an empty node that has 4 CPUs per NUMA node. The total allocatable capacity of the node is 8 CPUs and the scheduler will place the pod there. The node local admission will fail however as there are only 4 CPUs available in each of the NUMA nodes.
+** All clusters with multi-NUMA nodes are required to use the https://docs.openshift.com/container-platform/4.13/scalability_and_performance/cnf-numa-aware-scheduling.html#installing-the-numa-resources-operator_numa-aware[NUMA resources operator]. The machineConfigPoolSelector of the NUMAResourcesOperator must select all nodes where NUMA aligned scheduling is needed.
+* All machine config pools must have consistent hardware configuration (e.g. all nodes are expected to have the same NUMA zone count etc. etc.).
+
+Engineering considerations::
+
+* Pods may require annotations for correct scheduling/isolation. Note the annotations discussed in #heading=h.lpzct7bwe5w1[CPU Partitioning/Performance tuning].
+
