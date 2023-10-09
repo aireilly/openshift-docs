@@ -6,24 +6,8 @@ include::_attributes/common-attributes.adoc[]
 
 toc::[]
 
-Use the following information to plan RAN DU workloads, cluster resources, and hardware specifications for the hub cluster and managed {sno} clusters.
+The use model for a Telco Core cluster is to provide a platform supporting large scale telecom applications including control plane (signaling, aggregation, …) and some centralized data plane (eg UPF) functions running on commodity hardware. For examples of these functions see the architecture diagram above. These functions will generally require scalability, complex networking support, resilient software-defined storage, and support performance requirements that are less stringent and constrained than far-edge (eg RAN) deployments.
 
-[NOTE]
-====
-The DU workload is described in more detail in xref:../../telco_ref_design_specs/ran/telco-ran-du-overview.adoc#telco-ran-du-application-workloads_ran-ref-design-overview[DU application workload limits].
+The networking requirements of Telco core functions vary widely across a range of networking features and performance points. IPv6 is a requirement and dual-stack is common. Some functions need maximum throughput and transaction rate and require support for user-plane networking (DPDK) while others make use of more typical cloud-native patterns and can rely on OVN-K, kernel networking and load balancing.
 
-DU worker nodes have Intel Ice Lake 2.20 GHz or better CPUs with firmware tuned for maximum performance.
-====
-
-include::modules/telco-ran-measured-kpi-results.adoc[leveloffset=+1]
-
-[role="_additional-resources"]
-.Additional resources
-
-* For more information, see xref:../../telco_ref_design_specs/ran/telco-ran-ref-validation-artifacts.html#telco-ran-ref-config-kpi-testing_ran-ref-design-validation[KPI testing results].
-
-include::modules/telco-ran-managed-cluster-resources.adoc[leveloffset=+1]
-
-include::modules/telco-ran-hub-cluster-management.adoc[leveloffset=+1]
-
-include::modules/telco-ran-du-application-workloads.adoc[leveloffset=+1]
+Telco core clusters are configured as standard 3-control plane + N worker nodes configured with the stock (non-RT) kernel. In support of workloads with varying networking and performance requirements the worker nodes are segmented into MachineConfigPools (eg non-user-dataplane vs high-throughput). In support of required telecom operational features the clusters have a standard set of OLM (day-2) operators installed.
