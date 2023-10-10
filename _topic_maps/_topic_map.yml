@@ -2758,6 +2758,10 @@ Topics:
 - Name: Telco core reference design specification
   Dir: core
   Topics:
+  - Name: Telco core reference design overview
+    File: telco-core-rds-overview
+  - Name: Telco core use case model overview
+    File: telco-core-rds-use-cases
   - Name: Reference core design components
     File: telco-core-cpu-partitioning-performance-tuning
 ---
