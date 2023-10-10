@@ -53,3 +53,5 @@ You can use the `EgressService` CR to manage egress traffic in the following way
 * Assign the egress traffic for pods behind a load balancer to a different network than the default node network.
 
 * link:https://docs.openshift.com/container-platform/4.14/networking/ovn_kubernetes_network_provider/configuring-egress-traffic-for-vrf-loadbalancer-services.adoc#configuring-egress-traffic-loadbalancer-services[Configuring an egress service].
+
+|====
