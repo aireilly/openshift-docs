@@ -21,6 +21,7 @@ a|* 192G RAM
 |HP ProLiant e910
 a|* 96G RAM
 * 48 cores
+|====
 
 .Validated  CNF compute cluster hardware
 [cols="1,3", width="90%", options="header"]
