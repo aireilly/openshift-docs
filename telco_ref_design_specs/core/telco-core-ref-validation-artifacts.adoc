@@ -1,0 +1,19 @@
+:_content-type: ASSEMBLY
+[id="telco-core-ref-design-overview"]
+:_content-type: ASSEMBLY
+[id="telco-core-ref-validation-artifacts"]
+= Telco core DU reference configuration validation artifacts
+include::_attributes/common-attributes.adoc[]
+:context: ran-ref-design-validation
+
+toc::[]
+
+The following information describes the telco core reference configuration, hardware, KPI, scale, and system test validation metrics.
+
+include::modules/telco-core-hardware-platform-specifications.adoc[leveloffset=+1]
+
+include::modules/telco-core-ref-config-kpi-testing.adoc[leveloffset=+1]
+
+include::modules/telco-ran-ref-config-scale-testing.adoc[leveloffset=+1]
+
+include::modules/ztp-telco-ran-software-versions.adoc[leveloffset=+1]
