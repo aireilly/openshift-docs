@@ -14,7 +14,7 @@ The following new features included in {product-title} {product-version} are lev
 |Feature
 |Description
 
-//CNF-7349
+//CNF-7349 Rootless DPDK pods
 |Support for running rootless DPDK workloads with kernel access by using the TAP CNI plugin
 a|DPDK applications that need to inject some traffic to the kernel can run in non-privileged pods with the help of the TAP CNI plugin.
 
@@ -31,7 +31,7 @@ OVS remains unable to dynamically use isolated CPUs assigned to containers in `G
 |Enabling more control over the C-states for each pod
 a|You have more control over the C-states for your pods. Now, instead of disabling C-states completely, you can specify a maximum latency in microseconds for C-states. You can configure this option in the `cpu-c-states.crio.io` annotation, which helps to optimize power savings in high-priority applications by enabling some of the shallower C-states instead of disabling them completely.
 
-* link:https://docs.openshift.com/container-platform/4.14/networking/ptp/configuring-ptp#discover-ptp-devices_configuring-ptp[Discovering PTP capable network devices in your cluster]
+* link:https://docs.openshift.com/container-platform/4.14/scalability_and_performance/cnf-low-latency-tuning.html#node-tuning-operator-pod-power-saving-config_cnf-master[Optional: Power saving configurations].
 
 
 //CNF-7741 Permit to disable NUMA Aware scheduling hints based on SR-IOV VFs
