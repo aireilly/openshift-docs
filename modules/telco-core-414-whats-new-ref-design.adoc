@@ -54,4 +54,8 @@ You can use the `EgressService` CR to manage egress traffic in the following way
 
 * link:https://docs.openshift.com/container-platform/4.14/networking/ovn_kubernetes_network_provider/configuring-egress-traffic-for-vrf-loadbalancer-services.adoc#configuring-egress-traffic-loadbalancer-services[Configuring an egress service].
 
+//CNF-7461 Enhance SR-IOV VFs sharing between host and Pods
+| (Technology Preview)
+a|
+
 |====
