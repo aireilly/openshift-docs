@@ -2763,7 +2763,7 @@ Topics:
   - Name: Telco core use case model overview
     File: telco-core-rds-use-cases
   - Name: Reference core design components
-    File: telco-core-cpu-partitioning-performance-tuning
+    File: telco-core-ref-design-components
   #- Name: Reference design configuration CRs
   #  File: telco-core-ref-du-crs
   - Name: Reference design validation artifacts

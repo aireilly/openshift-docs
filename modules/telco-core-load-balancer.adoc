@@ -8,20 +8,47 @@
 
 New in this release::
 
+Not applicable.
 
 Description::
 
-The CNO deploys and manages the cluster network components including default OVN-Kubernetes network plugin during OCP cluster installation. It allows configuring primary interface MTU settings, OVN gateway modes to use node routing tables for pod egress, and additional secondary networks such as MACVLAN.
+MetalLB is a load-balancer implementation for bare metal Kubernetes
+clusters using standard routing protocols. It enables a kubernetes
+service to get an external IP address which is also added to the host
+network for the cluster.
 
-In support of network traffic segregation multiple network interfaces are configured through the CNO. Traffic steering to these interfaces is configured through static routes applied via the NMState configuration/operator. To ensure that Pod traffic is properly routed OVN-K is configured with the routingViaHost option enabled. This setting uses the kernel routing table (and thus the applied static routes) rather than OVN for Pod egress traffic.
+* MetalLB is a load-balancer implementation for bare metal Kubernetes
+clusters using standard routing protocols. It enables a kubernetes
+service to get an external IP address which is also added to the host
+network for the cluster.
 
-The Whereabouts CNI plugin is used to provide dynamic IPv4 and IPv6 addressing for additional (non-primary) pod network interfaces without the use of a DHCP server.
+Some use cases may require features not available in MetalLB, eg
+stateful load balancing. Where necessary an external/3rd party load
+balancer may be used. Selection and configuration of an external load
+balancer is outside the scope of this specification. When an
+external/3rd party load balancer is used the integration effort must
+include sufficient analysis to ensure all performance and resource
+utilization requirements are met.
 
 Limits and requirements::
 
-* OVN-Kubernetes is required for IPv6 support
-* Large MTU cluster support requires connected network equipment to be set to the same or larger value.
+* Stateful load balancing is not supported by Metal LB. An alternate load
+balancer implementation must be used if this is a requirement for
+workload CNFs.
+* The networking infrastructure must ensure that the external IP address
+is routable/reachable from clients to the host network for the cluster.
 
 Engineering considerations::
-* Pod egress traffic is handled by kernel routing table (routingViaHost option). Appropriate static routes must be configured in the host.
+* MetalLB is used in BGP mode only for Core use models.
+* For Core use models MetalLB is supported with only the OVN-Kubernetes
+network provider used in local gateway mode see `routingViaHost` in
+the Cluster Network Operator section.
+* BGP configuration in MetalLB is expected to vary depending on the
+requirements of the network and peers.
+* Address pools may be configured as needed with variation in addresses,
+aggregation length, auto assignment, etc
+* Parameters in the BFD profile may be values should remain close to the
+defaults. Shorter values may lead to false negatives and impact
+performance.
+
 

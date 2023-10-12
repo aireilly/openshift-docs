@@ -7,7 +7,8 @@
 = SR-IOV
 
 New in this release::
-* [https://issues.redhat.com/browse/CNF-6356[CNF-6356]] Allow the SR-IOV network operator to configure and allocate a subset of virtual functions from a physical function that is configured externally from SR-IOV network operator.
+* Allow the SR-IOV network operator to configure and allocate a subset of virtual functions from a physical function that is configured externally from SR-IOV network operator.
+// https://issues.redhat.com/browse/CNF-6356  not available to z-stream
 
 Description::
 
@@ -16,8 +17,8 @@ SR-IOV enables physical network interfaces (PFs) to be divided into multiple vir
 Limits and requirements::
 
 * https://docs.openshift.com/container-platform/4.13/networking/hardware_networks/about-sriov.html#nw-sriov-supported-platforms_about-sriov[OCP supported SR-IOV devices]
-* SR-IOV and IOMMU enablement in BIOS – The SR-IOV Network Operator will automatically enable IOMMU on the kernel command line.
-* SR-IOV VFs do not receive link state updates from the PF. If link down detection is needed it must be done at the protocol level.
+* SR-IOV and IOMMU enablement in BIOS – The SR-IOV Network Operator automatically enables IOMMU on the kernel command line.
+* SR-IOV VFs do not receive link state updates from the physical function (PF). If link down detection is needed it must be done at the protocol level.
 
 Engineering considerations::
-* SRIOV interfaces in vfio mode are typically used to enable additional secondary networks for applications that require high throughput or low latency.
+* SR-IOV interfaces in vfio mode are typically used to enable additional secondary networks for applications that require high throughput or low latency.

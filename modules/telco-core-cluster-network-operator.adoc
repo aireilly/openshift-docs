@@ -8,12 +8,13 @@
 
 New in this release::
 
+Not applicable.
 
 Description::
 
-The CNO deploys and manages the cluster network components including default OVN-Kubernetes network plugin during OCP cluster installation. It allows configuring primary interface MTU settings, OVN gateway modes to use node routing tables for pod egress, and additional secondary networks such as MACVLAN.
+The CNO deploys and manages the cluster network components including default OVN-Kubernetes network plugin during {product-title} cluster installation. It allows configuring primary interface MTU settings, OVN gateway modes to use node routing tables for pod egress, and additional secondary networks such as MACVLAN.
 
-In support of network traffic segregation multiple network interfaces are configured through the CNO. Traffic steering to these interfaces is configured through static routes applied via the NMState configuration/operator. To ensure that Pod traffic is properly routed OVN-K is configured with the routingViaHost option enabled. This setting uses the kernel routing table (and thus the applied static routes) rather than OVN for Pod egress traffic.
+In support of network traffic segregation multiple network interfaces are configured through the CNO. Traffic steering to these interfaces is configured through static routes applied by using the NMState Operator. To ensure that Pod traffic is properly routed OVN-K is configured with the `routingViaHost` option enabled. This setting uses the kernel routing table and therefore the applied static routes rather than OVN for Pod egress traffic.
 
 The Whereabouts CNI plugin is used to provide dynamic IPv4 and IPv6 addressing for additional (non-primary) pod network interfaces without the use of a DHCP server.
 
