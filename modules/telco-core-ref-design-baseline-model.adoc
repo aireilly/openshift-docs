@@ -19,7 +19,7 @@ The cluster conforms to these requirements:
 
 Storage::
 
-Core use cases require persistent storage as provided by external ODF. Details are in the Storage component below.
+Core use cases require persistent storage as provided by external OpenShift Data Foundation (ODF). For more information see the Storage section.
 
 Networking::
 

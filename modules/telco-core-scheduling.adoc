@@ -25,5 +25,5 @@ Limits and requirements::
 
 Engineering considerations::
 
-* Pods may require annotations for correct scheduling and isolation. Note the annotations discussed in section `CPU Partitioning and performance tuning.
+* Pods might require annotations for correct scheduling and isolation. Note the annotations discussed in section `CPU Partitioning and performance tuning`.
 
