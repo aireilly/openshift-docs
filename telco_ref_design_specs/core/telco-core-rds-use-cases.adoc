@@ -13,3 +13,8 @@ The networking requirements of telco core functions vary widely across a range o
 Telco core clusters are configured as standard 3-control plane + N worker nodes configured with the stock (non-RT) kernel. In support of workloads with varying networking and performance requirements the worker nodes are segmented into MachineConfigPools (eg non-user-dataplane vs high-throughput). In support of required telecom operational features the clusters have a standard set of OLM (day-2) operators installed.
 
 include::modules/telco-core-ref-design-baseline-model.adoc[leveloffset=+1]
+
+include::modules/telco-core-ref-eng-usecase-model.adoc[leveloffset=+2]
+
+include::modules/telco-core-ref-application-workloads.adoc[leveloffset=+2]
+

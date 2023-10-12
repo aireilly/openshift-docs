@@ -7,7 +7,59 @@
 = Common baseline model
 
 The following configurations and use model description are applicable to
-all Telco core use cases. The use cases which follow build on this
+all telco core use cases. The use cases which follow build on this
 common baseline.
+
+Cluster::
+
+The cluster conforms to these requirements:
+
+* High-availability (3+ supervisor nodes) control plane
+* Non-schedulable supervisor nodes
+
+Storage::
+
+Core use cases require persistent storage as provided by external ODF. Details are in the Storage component below.
+
+Networking::
+
+Telco core clusters networking conforms to these requirements:
+
+* Dual stack IPv4/IPv6
+
+* Fully disconnected – Clusters do not have access to public networking at
+any point in their lifecycle.
+
+* Multiple networks – Segmented networking which provides isolation
+between OAM, signaling, and storage traffic.
+
+* Cluster network type is OVN-Kubernetes as required for IPv6 support
+
+Core clusters have multiple layers of networking supported by underlying
+RHCOS, SR-IOV operator, Load Balancer and other components detailed in
+the Networking section below. At a high level these layers include:
+
+* Cluster networking – The cluster network configuration is defined and
+applied through the installation configuration. Updates to the
+configuration can be done at day-2 through the NMState Operator. Initial
+configuration can be used to establish:
+
+** Host interface configuration
+
+** A/A Bonding (LACP)
+
+* Secondary/additional networks – OpenShift CNI as configured through the
+Network “additionalNetworks” or NetworkAttachmentDefinition CRs.
+
+** MACVLAN
+
+* Application Workload – User plane networking running in CNFs.
+
+Service Mesh::
+
+Use of Service Mesh by telco CNFs is very common. It is expected that
+all Core clusters will include a Service Mesh implementation. The choice
+of implementation and configuration is outside the scope of this
+specification.
 
 
