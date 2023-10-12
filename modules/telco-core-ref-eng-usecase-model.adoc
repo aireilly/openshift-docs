@@ -1,0 +1,45 @@
+// Module included in the following assemblies:
+//
+// * telco_ref_design_specs/ran/telco-ran-ref-design-spec.adoc
+
+:_content-type: REFERENCE
+[id="telco-core-ref-eng-usecase-model_{context}"]
+= Engineering Considerations common use model
+
+The following engineering considerations are relevant for the common use model.
+
+Worker nodes::
+
+* Worker nodes are Intel 3rd Generation Xeon (IceLake) or better or the silicon security bug (Spectre and similar) mitigations must be turned off. Skylake and older can experience 40% transaction performance drop otherwise.
+
+* IRQ Balancing is enabled on worker nodes. The PerformanceProfile sets globallyDisableIrqLoadBalancing: false. Guaranteed QoS Pods are annotated to ensure isolation as described in CPU Partitioning/Performance Tuning section below.
+
+All nodes::
+
+* Hyperthreading is enabled on all nodes
+* CPU architecture is `x86_64` only
+* Nodes are running the stock (non-RT) kernel
+* Nodes are not configured for workload partitioning
+
+The balance of Node configuration between power management and maximum performance varies between MachineConfigPools in the cluster. This configuration is consistent for all Nodes within a MachineConfigPool.
+
+NetworkCluster scaling::
+
+See scalability section below for additional details
+
+* At least 120 nodes
+
+* <pending> workload pods, <pending> ConfigMaps and <pending> secrets per node in addition to those which are part of OpenShift.
+
+CPU partitioning::
+
+CPU partitioning is configured via PerformanceProfile and applied on a per MachineConfigPool basis. See CPU Partitioning/Performance Tuning section below for additional considerations.
+
+CPU requirements::
+
+The CPU requirements for the OpenShift platform will depend on the configured feature set and application workload characteristics. For a cluster configured according to the Reference Configuration below, running a simulated workload of 3k pods as created by kube-burner node-density test the following CPU requirements are validated.
+
+* The minimum number of reserved CPUs for worker nodes is:  <pending update> core (<pending>HT) per NUMA node. The remaining CPU are available for user workloads.
+* The minimum number of reserved CPUs for supervisor nodes: <pending update> core (<pending>HT) per NUMA node
+* Variations in OpenShift configuration, workload size, or workload characteristics will require additional analysis to determine the effect on the required CPU for the OpenShift platform.
+

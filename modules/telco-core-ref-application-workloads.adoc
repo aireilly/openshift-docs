@@ -1,0 +1,32 @@
+// Module included in the following assemblies:
+//
+// * telco_ref_design_specs/ran/telco-ran-ref-design-spec.adoc
+
+:_content-type: REFERENCE
+[id="telco-core-ref-application-workloads_{context}"]
+= Application workloads
+
+Application workloads running on Core clusters may include a mix of high performance networking CNFs and traditional best-effort/burstable pod workloads.
+
+Guaranteed QoS scheduling is available to pods which require exclusive/dedicated use of CPUs due to performance or security requirements. Typically pods which run high performance/latency sensitive CNFs using userplane networking (ie DPDK) will require exclusive use of dedicated whole CPUs achieved through node tuning and guaranteed QoS scheduling. Pods which require exclusive use of CPUs must be aware of the potential impact/implications of hyperthreaded systems and request multiples of 2 CPU when the entire core (2 hyperthreads) must be allocated to the pod.
+
+Pods running network functions that do not require the high throughput/low latency networking are typically scheduled with best-effort or burstable QoS and do not require dedicated or isolated CPU cores.
+
+Description of limits::
+
+* CNF applications should conform to the latest version of the CNF Best Practices guide at signoff of this RDS: CNF-Requirements-Document-Core
+* Mix of best-effort and burstable QoS pods.
+** Guaranteed QoS pods may be used but require proper configuration of reserved/isolated CPUs in the PerformanceProffile.
+** Guaranteed QoS Pods must include annotations for fully isolating CPUs.
+** Best effort and burstable pods are not guaranteed exclusive use of a CPU. Workloads may be preempted by other workloads, OS daemons, or kernel tasks.
+* Exec probes should be avoided unless there is absolutely no viable alternative.
+** Do not use exec probes if a CNF is using CPU pinning.
+** Other probe implementations (httpGet/tcpSocket etc) should be used
+
+Signaling workload::
+
+* Typical signaling workloads use SCTP, REST, gRPC or similar TCP or UDP protocols
+* The expected performance is on the order of 300k transactions per second when using cca 1200B packets
+* The absolute total maximum latency limits are up to a second, but the expectation is to get much lower numbers (but still in milliseconds)
+* Secondary NIC (multus) based utilizing MACVLAN or SR-IOV
+* Pods may be either guaranteed or burstable QoS
