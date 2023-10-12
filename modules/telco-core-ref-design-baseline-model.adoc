@@ -1,0 +1,13 @@
+// Module included in the following assemblies:
+//
+// * telco_ref_design_specs/ran/telco-ran-ref-design-spec.adoc
+
+:_content-type: REFERENCE
+[id="telco-core-ref-design-baseline-model_{context}"]
+= Common baseline model
+
+The following configurations and use model description are applicable to
+all Telco core use cases. The use cases which follow build on this
+common baseline.
+
+
