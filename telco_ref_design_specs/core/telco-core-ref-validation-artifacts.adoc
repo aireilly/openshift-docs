@@ -14,6 +14,6 @@ include::modules/telco-core-hardware-platform-specifications.adoc[leveloffset=+1
 
 include::modules/telco-core-ref-config-kpi-testing.adoc[leveloffset=+1]
 
-include::modules/telco-ran-ref-config-scale-testing.adoc[leveloffset=+1]
+include::modules/telco-core-ref-config-scale-testing.adoc[leveloffset=+1]
 
 include::modules/ztp-telco-ran-software-versions.adoc[leveloffset=+1]
