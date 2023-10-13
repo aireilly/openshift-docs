@@ -1,0 +1,27 @@
+// Module included in the following assemblies:
+//
+// * telco_ref_design_specs/core/telco-core-ref-components.adoc
+
+:_content-type: REFERENCE
+[id="telco-core-disconnected-environment_{context}"]
+= Disconnected Environment
+
+
+Description::
+Telco Core clusters are expected to be installed in networks without
+direct access to the internet. All container images needed to install,
+configure and operator the cluster must be available in a disconnected
+registry. This includes OCP images, day-2 OLM Operator images, and
+application workload images. The use of a disconnected environment
+provides multiple benefits
+
+* Limiting access to the cluster for security.
+* Curated content – The registry is populated based on curated/approved
+updates for the clusters
+
+Limits and requirements::
+
+* A unique name is required for all custom CatalogSources. Do not reuse
+the default catalog names.
+
+Engineering considerations::
