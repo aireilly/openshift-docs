@@ -8,9 +8,8 @@
 
 New in this release::
 
-* [https://issues.redhat.com/browse/CNF-4804[CNF-4804] (4.13) https://issues.redhat.com/browse/CNF-5722[CNF-5722] (4.12.24)] 4.13 and 4.14 https://docs.openshift.com/container-platform/4.13/scalability_and_performance/cnf-numa-aware-scheduling.html[NUMA aware scheduling] was marked as GA
-* [https://issues.redhat.com/browse/CNF-7741[CNF-7741]] Ability to not advertise the NUMA node where an SR-IOV Virtual Function resides to the Topology Manager. This allows workload to have reserved CPU and memory on a different node than the network interface, paying a little performance slowdown in favor of scheduling flexibility. Feature is keyed off the `excludeTopology` field in SriovNetworkNodePolicy.
-//don't think this is in this release pushed out to z stream
+* NUMA-aware scheduling with the NUMA Resources Operator is now generally available in {product-title} {product-version}.
+* With this release, you can exclude advertising the Non-Uniform Memory Access (NUMA) node for the SR-IOV network to the Topology Manager. By not advertising the NUMA node for the SR-IOV network, you can permit more flexible SR-IOV network deployments during NUMA-aware pod scheduling. To exclude advertising the NUMA node for the SR-IOV network resource to the Topology Manager, set the value `excludeTopology` to true in the `SriovNetworkNodePolicy`  custom resource. For more information, see link:https://docs.openshift.com/container-platform/4.14/networking/hardware_networks/configuring-sriov-device.html#nw-sriov-exclude-topology-manager_configuring-sriov-device[Exclude the SR-IOV network topology for NUMA-aware scheduling].
 
 Description::
 
