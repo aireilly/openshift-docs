@@ -28,4 +28,4 @@ Limits and requirements::
 
 Engineering considerations::
 
-* For rootless DPDK pod support, the SELinux boolean `container_use_devices` must be enabled on the host for the tap device to be created. This introduces a security risk that for the short to mid term is acceptable. Other solutions will be explored in due course.
+* For rootless DPDK pod support, the SELinux boolean `container_use_devices` must be enabled on the host for the TAP device to be created. This introduces a security risk that for the short to mid term is acceptable. Other solutions will be explored in due course.
