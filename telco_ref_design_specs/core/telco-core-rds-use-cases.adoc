@@ -6,7 +6,7 @@ include::_attributes/common-attributes.adoc[]
 
 toc::[]
 
-The use model for a telco core cluster provides a platform supporting large scale telecom applications including control plane (signaling, aggregation, and so on) and some centralized data plane for example user plane functions (UPF) functions running on commodity hardware. For examples of these functions see the architecture diagram. These functions generally require scalability, complex networking support, resilient software-defined storage, and support performance requirements that are less stringent and constrained than far-edge deployments like RAN.
+The use model for a telco core cluster provides a platform supporting large scale telecom applications including control plane functions like signaling and aggregation, and some centralized data plane for example user plane functions (UPF) functions running on commodity hardware. For examples of these functions see the architecture diagram. These functions generally require scalability, complex networking support, resilient software-defined storage, and support performance requirements that are less stringent and constrained than far-edge deployments like RAN.
 
 The networking prerequisites for core telco functions exhibit large diversity, encompassing an array of networking attributes and performance benchmarks. IPv6 is mandatory, with dual-stack configurations being prevalent. Certain functions demand maximum throughput and transaction rates, necessitating user-plane networking support, such as DPDK. Other functions adhere to conventional cloud-native patterns and can use solutions like OVN-K, kernel networking, and load balancing.
 

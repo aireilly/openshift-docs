@@ -12,11 +12,11 @@ Not applicable
 
 Description::
 
-The NMState Operator provides a Kubernetes API for performing network configurations across the cluster’s nodes/hosts. It enables network interface configurations, static IPs and DNS, VLANs, trunks, bonding, static routes, MTU, and enabling promiscuous mode on the secondary interfaces. The cluster nodes periodically report on the state of each node’s network interfaces to the API server.
+The NMState Operator provides a Kubernetes API for performing network configurations across the cluster’s nodes. It enables network interface configurations, static IPs and DNS, VLANs, trunks, bonding, static routes, MTU, and enabling promiscuous mode on the secondary interfaces. The cluster nodes periodically report on the state of each node’s network interfaces to the API server.
 
 Limits and requirements::
 
 
 Engineering considerations::
 * Initial networking configuration is applied using NMStateConfig content in the installation CRs. The NMState Operator is used only when needed for network updates.
-* When SR-IOV virtual functions are used for host networking, the NMState Operator using `NodeNetworkConfigurationPolicy` is used to configure those VF interfaces for example VLAN, MTU, …)
+* When SR-IOV virtual functions are used for host networking, the NMState Operator using `NodeNetworkConfigurationPolicy` is used to configure those VF interfaces for example congiuring VLANs and the MTU.

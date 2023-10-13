@@ -36,7 +36,7 @@ a|You have more control over the C-states for your pods. Now, instead of disabli
 
 //CNF-7741 Permit to disable NUMA Aware scheduling hints based on SR-IOV VFs
 |Exclude SR-IOV network topology for NUMA-aware scheduling.
-a|you can exclude advertising the Non-Uniform Memory Access (NUMA) node for the SR-IOV network to the Topology Manager. By not advertising the NUMA node for the SR-IOV network, you can permit more flexible SR-IOV network deployments during NUMA-aware pod scheduling.
+a|You can exclude advertising the Non-Uniform Memory Access (NUMA) node for the SR-IOV network to the Topology Manager. By not advertising the NUMA node for the SR-IOV network, you can permit more flexible SR-IOV network deployments during NUMA-aware pod scheduling.
 
 For example, in some scenarios, it is a priority to maximize CPU and memory resources for a pod on a single NUMA node. By not providing a hint to the Topology Manager about the NUMA node for the pod’s SR-IOV network resource, the Topology Manager can deploy the SR-IOV network resource and the pod CPU and memory resources to different NUMA nodes. In earlier {product-title} releases, the Topology Manager attempted to place all resources on the same NUMA node only.
 
@@ -53,9 +53,5 @@ You can use the `EgressService` CR to manage egress traffic in the following way
 * Assign the egress traffic for pods behind a load balancer to a different network than the default node network.
 
 * link:https://docs.openshift.com/container-platform/4.14/networking/ovn_kubernetes_network_provider/configuring-egress-traffic-for-vrf-loadbalancer-services.adoc#configuring-egress-traffic-loadbalancer-services[Configuring an egress service].
-
-//CNF-7461 Enhance SR-IOV VFs sharing between host and Pods
-| (Technology Preview)
-a|
 
 |====
