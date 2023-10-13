@@ -1,16 +1,17 @@
 // Module included in the following assemblies:
 //
-// * telco_ref_design_specs/rancore
+// * telco_ref_design_specs/ran/core/telco-core-ref-design-components.adoc
+
 :_content-type: REFERENCE
 [id="telco-core-kernel_{context}"]
 = Kernel
 
 New in this release::
 
-
 Description::
 
-The following kernel modules may be installed via MachineConfig to provide extended kernel functionality to CNFs:
+Install the following kernel modules by using MachineConfig to provide extended kernel functionality to CNFs:
+
 * sctp
 * ip_gre
 * ip6_tables

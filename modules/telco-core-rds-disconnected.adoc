@@ -4,20 +4,13 @@
 
 :_content-type: REFERENCE
 [id="telco-core-disconnected-environment_{context}"]
-= Disconnected Environment
-
+= Disconnected environment
 
 Description::
-Telco Core clusters are expected to be installed in networks without
-direct access to the internet. All container images needed to install,
-configure and operator the cluster must be available in a disconnected
-registry. This includes OCP images, day-2 OLM Operator images, and
-application workload images. The use of a disconnected environment
-provides multiple benefits
+Telco core clusters are expected to be installed in networks without direct access to the internet. All container images needed to install, configure and operator the cluster must be available in a disconnected registry. This includes {product-title} images, day-2 Operator Lifecycle Manager (OLM) Operator images, and application workload images. The use of a disconnected environment provides multiple benefits for example:
 
 * Limiting access to the cluster for security.
-* Curated content – The registry is populated based on curated/approved
-updates for the clusters
+* Curated content: The registry is populated based on curated and approved updates for the clusters
 
 Limits and requirements::
 
@@ -25,3 +18,5 @@ Limits and requirements::
 the default catalog names.
 
 Engineering considerations::
+
+Not applicable
