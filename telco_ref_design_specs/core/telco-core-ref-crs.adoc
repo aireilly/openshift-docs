@@ -1,8 +1,8 @@
 :_content-type: ASSEMBLY
-[id="telco-core-ref-du-crs"]
+[id="telco-core-ref-crs"]
 = Telco core reference configuration CRs
 include::_attributes/common-attributes.adoc[]
-:context: ran-core-ref-design-crs
+:context: core-rds-crs
 
 toc::[]
 
