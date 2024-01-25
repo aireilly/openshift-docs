@@ -27,7 +27,7 @@ In previous releases of OADP 1.2, {OCP} 4.14 enforced a pod security admission (
 
 This issue has been resolved in the release of OADP 1.2.2, and also OADP 1.1.6. Therefore, it is recommended that users upgrade to these releases.
 
-For more information, see link:https://issues.redhat.com/browse/OADP-2094[(OADP-2094)]
+For more information, see link:https://docs.openshift.com/container-platform/4.14/backup_and_restore/application_backup_and_restore/troubleshooting.html#oadp-restic-restore-failing-psa-policy_oadp-troubleshooting[Restic restore partially failing on OCP 4.14 due to changed PSA policy]. link:https://issues.redhat.com/browse/OADP-2094[(OADP-2094)]
 
 
 .Backup of an app with internal images partially failed with plugin panicked error
