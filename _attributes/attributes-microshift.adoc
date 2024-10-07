@@ -5,6 +5,7 @@
 :imagesdir: images
 :OCP: OpenShift Container Platform
 :ocp-version: 4.17
+:test: testing
 :oc-first: pass:quotes[OpenShift CLI (`oc`)]
 //OpenShift Kubernetes Engine
 :oke: OpenShift Kubernetes Engine
