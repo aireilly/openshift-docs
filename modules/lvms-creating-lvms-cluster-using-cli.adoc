@@ -80,34 +80,38 @@ lvmcluster/lvmcluster created
 $ oc get lvmclusters.lvm.topolvm.io -o jsonpath='{.items[*].status}' -n <namespace>
 ----
 +
-.Example output
+Example output:
++
 [source,json]
 ----
-{"deviceClassStatuses": <1>
-[ 
+{"deviceClassStatuses":
+[
   {
-    "name": "vg1", 
-    "nodeStatus": [ <2>
+    "name": "vg1",
+    "nodeStatus": [
         {
-            "devices": [ <3>
+            "devices": [
                 "/dev/nvme0n1",
                 "/dev/nvme1n1",
                 "/dev/nvme2n1"
             ],
-            "node": "kube-node", <4>
-            "status": "Ready" <5>
+            "node": "kube-node",
+            "status": "Ready"
         }
     ]
   }
 ]
-"state":"Ready"} <6>
+"state":"Ready"}
 ----
-<1> The status of the device class. 
-<2> The status of the LVM volume group on each node.
-<3> The list of devices used to create the LVM volume group.
-<4> The node on which the device class is created.
-<5> The status of the LVM volume group on the node.
-<6> The status of the `LVMCluster` CR.
+
+where:
+
+`deviceClassStatuses`:: The status of the device class.
+`nodeStatus`:: The status of the LVM volume group on each node.
+`devices`:: The list of devices used to create the LVM volume group.
+`node`:: The node on which the device class is created.
+`status`:: The status of the LVM volume group on the node.
+`state`:: The status of the `LVMCluster` CR.
 +
 [NOTE]
 ====
