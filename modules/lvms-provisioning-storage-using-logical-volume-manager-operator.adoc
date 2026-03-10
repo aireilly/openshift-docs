@@ -76,7 +76,7 @@ The created PVCs remain in `Pending` state until you deploy the pods that use th
 $ oc get pvc -n <namespace>
 ----
 +
-.Example output
+Example output:
 +
 [source, terminal]
 ----

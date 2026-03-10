@@ -59,7 +59,7 @@ $ oc create -f <file_name> -n <namespace>
 $ oc get volumesnapshot -n <namespace>
 ----
 +
-.Example output
+Example output:
 +
 [source, terminal]
 ----

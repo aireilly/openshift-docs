@@ -41,6 +41,6 @@ As a cluster administrator, you must manually approve the update request to upda
 . Optional: Select the *Enable Operator recommended cluster monitoring on this Namespace* checkbox.
 . Click *Install*.
 
-.Verification steps
+.Verification
 
 * Verify that {lvms} shows a green tick, indicating successful installation.
