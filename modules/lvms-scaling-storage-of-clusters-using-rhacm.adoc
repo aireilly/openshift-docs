@@ -6,6 +6,7 @@
 [id="lvms-scaling-storage-of-clusters-using-rhacm_{context}"]
 = Scaling up the storage of clusters by using {rh-rhacm}
 
+[role="_abstract"]
 You can scale up the storage capacity of worker nodes on the clusters by using {rh-rhacm}.
 
 .Prerequisites

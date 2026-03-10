@@ -6,6 +6,7 @@
 [id="performing-a-forced-cleanup_{context}"]
 = Performing a forced clean-up
 
+[role="_abstract"]
 If the disk or node-related problems persist even after you have completed the troubleshooting procedures, you must perform a forced clean-up. A forced clean-up is used to address persistent issues and ensure the proper functioning of {lvms-first}.
 
 .Prerequisites

@@ -6,6 +6,7 @@
 [id="lvms-creating-volume-clones_{context}"]
 = Creating volume clones
 
+[role="_abstract"]
 To create a clone of a persistent volume claim (PVC), you must create a `PersistentVolumeClaim` object in the namespace where you created the source PVC.
 
 [IMPORTANT]

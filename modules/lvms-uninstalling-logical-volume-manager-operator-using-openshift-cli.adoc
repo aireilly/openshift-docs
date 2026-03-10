@@ -6,6 +6,7 @@
 [id="lvms-unstalling-lvms-using-cli_{context}"]
 = Uninstalling {lvms} by using the CLI
 
+[role="_abstract"]
 You can uninstall {lvms} by using the {oc-first}.
 
 .Prerequisites

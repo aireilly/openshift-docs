@@ -6,6 +6,7 @@
 [id="lvms-unsupported-devices_{context}"]
 = Devices not supported by {lvms}
 
+[role="_abstract"]
 When you are adding the device paths in the `deviceSelector` field of the `LVMCluster` custom resource (CR), ensure that the devices are supported by {lvms}. If you add paths to the unsupported devices, {lvms} excludes the devices to avoid complexity in managing logical volumes.
 
 If you do not specify any device path in the `deviceSelector` field, {lvms} adds only the unused devices that it supports. 

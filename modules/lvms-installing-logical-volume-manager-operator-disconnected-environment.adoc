@@ -6,6 +6,7 @@
 [id="lvms-installing-lvms-disconnected-env_{context}"]
 = Installing {lvms} in a disconnected environment
 
+[role="_abstract"]
 You can install {lvms} on {product-title} in a disconnected environment. All sections referenced in this procedure are linked in the "Additional resources" section.
 
 .Prerequisites

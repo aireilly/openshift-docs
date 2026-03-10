@@ -6,6 +6,7 @@
 [id="lvms-creating-lvms-cluster-using-web-console_{context}"]
 = Creating an LVMCluster CR by using the web console
 
+[role="_abstract"]
 You can create an `LVMCluster` CR on a worker node using the {product-title} web console.
 
 [IMPORTANT]

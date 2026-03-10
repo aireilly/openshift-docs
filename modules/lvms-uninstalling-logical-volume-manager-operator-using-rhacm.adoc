@@ -6,6 +6,7 @@
 [id="lvms-uninstalling-lvms-rhacm_{context}"]
 = Uninstalling {lvms} installed using {rh-rhacm}
 
+[role="_abstract"]
 To uninstall {lvms} that you installed using {rh-rhacm}, you must delete the {rh-rhacm} `Policy` custom resource (CR) that you created for installing and configuring {lvms}.
 
 .Prerequisites

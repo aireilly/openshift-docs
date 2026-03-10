@@ -6,6 +6,7 @@
 [id="lvms-creating-lvms-cluster-using-cli_{context}"]
 = Creating an LVMCluster CR by using the CLI
 
+[role="_abstract"]
 You can create an `LVMCluster` custom resource (CR) on a worker node using the OpenShift CLI (`oc`).
 
 [IMPORTANT]

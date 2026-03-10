@@ -6,6 +6,7 @@
 [id="lvms-deleting-pvc_{context}"]
 = Deleting a persistent volume claim
 
+[role="_abstract"]
 You can delete a persistent volume claim (PVC) by using the OpenShift CLI (`oc`).
 
 .Prerequisites

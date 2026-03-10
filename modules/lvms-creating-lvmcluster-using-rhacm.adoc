@@ -6,6 +6,7 @@
 [id="lvms-creating-lvmcluster-using-rhacm_{context}"]
 = Creating an LVMCluster CR by using {rh-rhacm}
 
+[role="_abstract"]
 After you have installed {lvms} by using {rh-rhacm}, you must create an `LVMCluster` custom resource (CR).
 
 .Prerequisites

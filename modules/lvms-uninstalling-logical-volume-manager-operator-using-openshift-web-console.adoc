@@ -6,6 +6,7 @@
 [id="lvms-unstalling-lvms-with-web-console_{context}"]
 = Uninstalling {lvms} by using the web console
 
+[role="_abstract"]
 You can uninstall {lvms} using the {product-title} web console.
 
 .Prerequisites

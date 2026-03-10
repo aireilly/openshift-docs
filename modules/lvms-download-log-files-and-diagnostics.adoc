@@ -6,6 +6,7 @@
 [id="lvms-dowloading-log-files-and-diagnostics_{context}"]
 = Downloading log files and diagnostic information using must-gather
 
+[role="_abstract"]
 When {lvms} is unable to automatically resolve a problem, use the must-gather tool to collect the log files and diagnostic information so that you or the Red Hat Support can review the problem and determine a solution.
 
 .Procedure

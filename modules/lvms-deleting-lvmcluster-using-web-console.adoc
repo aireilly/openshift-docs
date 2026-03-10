@@ -6,6 +6,7 @@
 [id="lvms-deleting-lvmcluster-using-web-console_{context}"]
 = Deleting an LVMCluster CR by using the web console
 
+[role="_abstract"]
 You can delete the `LVMCluster` custom resource (CR) using the {product-title} web console.
 
 .Prerequisites

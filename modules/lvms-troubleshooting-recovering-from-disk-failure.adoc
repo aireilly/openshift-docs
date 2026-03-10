@@ -6,6 +6,7 @@
 [id="recovering-from-disk-failure_{context}"]
 = Recovering from disk failure
 
+[role="_abstract"]
 If you see a failure message while inspecting the events associated with the persistent volume claim (PVC), there can be a problem with the underlying volume or disk. 
 
 Disk and volume provisioning issues result with a generic error message such as `Failed to provision volume with storage class <storage_class_name>`. The generic error message is followed by a specific volume failure error message.

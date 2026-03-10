@@ -6,6 +6,7 @@
 [id="lvms-installing-lvms-with-web-console_{context}"]
 = Installing {lvms} by using the web console
 
+[role="_abstract"]
 You can install {lvms} by using the {product-title} web console.
 
 [NOTE]

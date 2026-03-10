@@ -7,6 +7,7 @@
 [id="limitations-to-configure-size-of-devices_{context}"]
 = Limitations to configure the size of the devices used in {lvms}
 
+[role="_abstract"]
 The limitations to configure the size of the devices that you can use to provision storage using {lvms} are as follows:
 
 * The total storage size that you can provision is limited by the size of the underlying Logical Volume Manager (LVM) thin pool and the over-provisioning factor.

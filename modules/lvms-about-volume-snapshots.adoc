@@ -6,6 +6,7 @@
 [id="lvms-about-volume-snapshots_{context}"]
 = About volume snapshots
 
+[role="_abstract"]
 You can create snapshots of persistent volume claims (PVCs) that are provisioned by {lvms}.
 
 You can perform the following actions using the volume snapshots:

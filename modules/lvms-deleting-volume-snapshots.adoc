@@ -6,6 +6,7 @@
 [id="lvms-deleting-volume-snapshots_{context}"]
 = Deleting volume snapshots
 
+[role="_abstract"]
 You can delete the volume snapshots of the persistent volume claims (PVCs).
 [IMPORTANT]
 ====

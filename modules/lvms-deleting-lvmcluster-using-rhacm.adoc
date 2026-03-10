@@ -6,6 +6,7 @@
 [id="lvms-deleting-lvmcluster-using-rhacm_{context}"]
 = Deleting an LVMCluster CR by using {rh-rhacm}
 
+[role="_abstract"]
 If you have installed {lvms} by using {rh-rhacm-first}, you can delete an `LVMCluster` CR by using {rh-rhacm}.
 
 .Prerequisites

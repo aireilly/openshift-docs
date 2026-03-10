@@ -6,6 +6,7 @@
 [id="lvms-about-volume-clones_{context}"]
 = About volume clones
 
+[role="_abstract"]
 A volume clone is a duplicate of an existing persistent volume claim (PVC). You can create a volume clone to make a point-in-time copy of the data.
 
 == Limitations for creating volume clones in multi-node topology

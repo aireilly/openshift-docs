@@ -6,6 +6,7 @@
 [id="lvms-restoring-volume-snapshots_{context}"]
 = Restoring volume snapshots
 
+[role="_abstract"]
 To restore a volume snapshot, you must create a persistent volume claim (PVC) with the `dataSource.name` field set to the name of the volume snapshot.
 
 The restored PVC is independent of the volume snapshot and the source PVC.

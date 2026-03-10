@@ -6,6 +6,7 @@
 [id="lvms-scaling-storage-of-clusters-using-web-console_{context}"]
 = Scaling up the storage of clusters by using the web console
 
+[role="_abstract"]
 You can scale up the storage capacity of the worker nodes on a cluster by using the {product-title} web console.
 
 .Prerequisites

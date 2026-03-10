@@ -6,6 +6,7 @@
 [id="about-lvmcluster_{context}"]
 = About the LVMCluster custom resource
 
+[role="_abstract"]
 You can configure the `LVMCluster` CR to perform the following actions:
 
 * Create LVM volume groups that you can use to provision persistent volume claims (PVCs).

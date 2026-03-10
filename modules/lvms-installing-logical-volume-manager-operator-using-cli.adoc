@@ -6,6 +6,7 @@
 [id="install-lvms-operator-cli_{context}"]
 = Installing {lvms} by using the CLI
 
+[role="_abstract"]
 As a cluster administrator, you can install {lvms} by using the OpenShift CLI.
 
 [NOTE]

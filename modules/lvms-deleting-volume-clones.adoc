@@ -6,6 +6,7 @@
 [id="lvms-deleting-cloned-volumes_{context}"]
 = Deleting volume clones
 
+[role="_abstract"]
 You can delete volume clones.
 [IMPORTANT]
 ====

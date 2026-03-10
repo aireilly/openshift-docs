@@ -6,6 +6,7 @@
 [id="lvms-provisioning-storage-using-lvms_{context}"]
 = Provisioning storage
 
+[role="_abstract"]
 After you have created the LVM volume groups using the `LVMCluster` custom resource (CR), you can provision the storage by creating persistent volume claims (PVCs).
 
 The following are the minimum storage sizes that you can request for each file system type:

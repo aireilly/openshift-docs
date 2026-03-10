@@ -6,6 +6,7 @@
 [id="lvms-monitoring_{context}"]
 = Monitoring {lvms}
 
+[role="_abstract"]
 To enable cluster monitoring, you must add the following label in the namespace where you have installed {lvms}:
 [source,text]
 ----

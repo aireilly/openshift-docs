@@ -6,6 +6,7 @@
 [id="lvms-installing-odf-logical-volume-manager-operator-using-rhacm_{context}"]
 = Installing {lvms} by using {rh-rhacm}
 
+[role="_abstract"]
 To install {lvms} on the clusters by using {rh-rhacm-first}, you must create a `Policy` custom resource (CR). You can also configure the criteria to select the clusters on which you want to install {lvms}.
 
 [NOTE]

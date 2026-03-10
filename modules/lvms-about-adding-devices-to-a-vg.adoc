@@ -6,6 +6,7 @@
 [id="about-adding-devices-to-a-vg_{context}"]
 = About adding devices to a volume group
 
+[role="_abstract"]
 The `deviceSelector` field in the `LVMCluster` CR contains the configuration to specify the paths to the devices that you want to add to the Logical Volume Manager (LVM) volume group.
 
 You can specify the device paths in the `deviceSelector.paths` field, the `deviceSelector.optionalPaths` field, or both. If you do not specify the device paths in both the `deviceSelector.paths` field and the `deviceSelector.optionalPaths` field, {lvms} adds the supported unused devices to the volume group (VG). 

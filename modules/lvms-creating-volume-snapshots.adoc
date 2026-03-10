@@ -6,6 +6,7 @@
 [id="lvms-creating-volume-snapshots_{context}"]
 = Creating volume snapshots
 
+[role="_abstract"]
 You can create volume snapshots based on the available capacity of the thin pool and the over-provisioning limits.
 To create a volume snapshot, you must create a `VolumeSnapshotClass` object.
 
