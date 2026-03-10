@@ -22,9 +22,12 @@ To uninstall {lvms} that you installed using {rh-rhacm}, you must delete the {rh
 +
 [source,terminal]
 ----
-$ oc delete -f <policy> -n <namespace> <1>
+$ oc delete -f <policy> -n <namespace>
 ----
-<1> Replace `<policy>` with the name of the `Policy` CR YAML file.
++
+--
+`$ oc delete -f <policy> -n <namespace>`:: Replace `<policy>` with the name of the `Policy` CR YAML file.
+--
 
 . Create a `Policy` CR YAML file with the configuration to uninstall {lvms}:
 +

@@ -46,9 +46,12 @@ The following table describes the volume failure error messages:
 +
 [source,terminal]
 ----
-$ oc describe pvc <pvc_name> <1>
+$ oc describe pvc <pvc_name>
 ----
-<1> Replace `<pvc_name>` with the name of the PVC.
++
+--
+`$ oc describe pvc <pvc_name>`:: Replace `<pvc_name>` with the name of the PVC.
+--
 
 . Establish a direct connection to the host where the problem is occurring.
 

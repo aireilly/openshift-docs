@@ -43,17 +43,23 @@ Devices that are part of another volume group:: To get the information about the
 +
 [source, terminal]
 ----
-$ pvs <device-name> <1>
+$ pvs <device-name>
 ----
-<1> Replace `<device-name>` with the device name.
++
+--
+`$ pvs <device-name>`:: Replace `<device-name>` with the device name.
+--
 
 Devices with bind mounts:: To get the mount points of a device, run the following command:
 +
 [source, terminal]
 ----
-$ cat /proc/1/mountinfo | grep <device-name> <1>
+$ cat /proc/1/mountinfo | grep <device-name>
 ----
-<1> Replace `<device-name>` with the device name.
++
+--
+`$ cat /proc/1/mountinfo | grep <device-name>`:: Replace `<device-name>` with the device name.
+--
 
 Devices that contain children devices::
 

@@ -39,14 +39,9 @@ lvms-test   Pending                                      lvms-vg1       11s
 +
 [source,terminal]
 ----
-$ oc describe pvc <pvc_name> <1>
+$ oc describe pvc <pvc_name>
 ----
-<1> Replace `<pvc_name>` with the name of the PVC. For example, `lvms-vg1`.
 +
-.Example output
-[source,terminal]
-----
-Type     Reason              Age               From                         Message
-----     ------              ----              ----                         -------
-Warning  ProvisioningFailed  4s (x2 over 17s)  persistentvolume-controller  storageclass.storage.k8s.io "lvms-vg1" not found
-----
+--
+`$ oc describe pvc <pvc_name>`:: Replace `<pvc_name>` with the name of the PVC. For example, `lvms-vg1`. + .Example output [source,terminal] ---- Type     Reason              Age               From                         Message ----     ------              ----              ----                         ------- Warning  ProvisioningFailed  4s (x2 over 17s)  persistentvolume-controller  storageclass.storage.k8s.io "lvms-vg1" not found ----
+--

@@ -46,15 +46,12 @@ subscription.operators.coreos.com "lvms-operator" deleted
 +
 [source,terminal]
 ----
-$ oc delete clusterserviceversion <currentCSV> -n <namespace> <1>
+$ oc delete clusterserviceversion <currentCSV> -n <namespace>
 ----
-<1> Replace `<currentCSV>` with the `currentCSV` value for the {lvms} Operator.
 +
-.Example output
-[source,terminal]
-----
-clusterserviceversion.operators.coreos.com "lvms-operator.v4.15.3" deleted
-----
+--
+`$ oc delete clusterserviceversion <currentCSV> -n <namespace>`:: Replace `<currentCSV>` with the `currentCSV` value for the {lvms} Operator. + .Example output [source,terminal] ---- clusterserviceversion.operators.coreos.com "lvms-operator.v4.15.3" deleted ----
+--
 
 .Verification
 

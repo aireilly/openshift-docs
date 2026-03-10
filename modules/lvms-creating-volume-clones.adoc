@@ -33,19 +33,22 @@ metadata:
 spec:
   accessModes:
   - ReadWriteOnce
-  storageClassName: lvms-vg1 <1>
-  volumeMode: Filesystem <2>
+  storageClassName: lvms-vg1
+  volumeMode: Filesystem
   dataSource:
     kind: PersistentVolumeClaim
-    name: lvm-pvc <3>
+    name: lvm-pvc
   resources:
     requests:
-      storage: 1Gi <4>
+      storage: 1Gi
 ----
-<1> Set this field to the value of the `storageClassName` field in the source PVC.
-<2> Set this field to the `volumeMode` field in the source PVC.
-<3> Specify the name of the source PVC.
-<4> Specify the storage size for the cloned PVC. The storage size of the cloned PVC must be greater than or equal to the storage size of the source PVC.
++
+--
+`storageClassName: lvms-vg1`:: Set this field to the value of the `storageClassName` field in the source PVC.
+`volumeMode: Filesystem`:: Set this field to the `volumeMode` field in the source PVC.
+`name: lvm-pvc`:: Specify the name of the source PVC.
+`storage: 1Gi`:: Specify the storage size for the cloned PVC. The storage size of the cloned PVC must be greater than or equal to the storage size of the source PVC.
+--
 
 . Create the PVC in the namespace where you created the source PVC by running the following command:
 +

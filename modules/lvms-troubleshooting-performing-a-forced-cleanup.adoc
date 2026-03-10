@@ -39,17 +39,23 @@ $ oc get logicalvolume
 +
 [source,terminal]
 ----
-$ oc delete logicalvolume <name> <1>
+$ oc delete logicalvolume <name>
 ----
-<1> Replace `<name>` with the name of the `LogicalVolume` CR.
++
+--
+`$ oc delete logicalvolume <name>`:: Replace `<name>` with the name of the `LogicalVolume` CR.
+--
 
 .. After deleting the `LogicalVolume` CRs, remove their finalizers by running the following command:
 +
 [source,terminal]
 ----
-$ oc patch logicalvolume <name> -p '{"metadata":{"finalizers":[]}}' --type=merge <1>
+$ oc patch logicalvolume <name> -p '{"metadata":{"finalizers":[]}}' --type=merge
 ----
-<1> Replace `<name>` with the name of the `LogicalVolume` CR.
++
+--
+`$ oc patch logicalvolume <name> -p '{"metadata":{"finalizers":[]}}' --type=merge`:: Replace `<name>` with the name of the `LogicalVolume` CR.
+--
 
 . Check if the `LVMVolumeGroup` CRs are present by running the following command:
 +
@@ -62,17 +68,23 @@ $ oc get lvmvolumegroup
 +
 [source,terminal]
 ----
-$ oc delete lvmvolumegroup <name> <1>
+$ oc delete lvmvolumegroup <name>
 ----
-<1> Replace `<name>` with the name of the `LVMVolumeGroup` CR.
++
+--
+`$ oc delete lvmvolumegroup <name>`:: Replace `<name>` with the name of the `LVMVolumeGroup` CR.
+--
 
 .. After deleting the `LVMVolumeGroup` CRs, remove their finalizers by running the following command:
 +
 [source,terminal]
 ----
-$ oc patch lvmvolumegroup <name> -p '{"metadata":{"finalizers":[]}}' --type=merge <1>
+$ oc patch lvmvolumegroup <name> -p '{"metadata":{"finalizers":[]}}' --type=merge
 ----
-<1> Replace `<name>` with the name of the `LVMVolumeGroup` CR. 
++
+--
+`$ oc patch lvmvolumegroup <name> -p '{"metadata":{"finalizers":[]}}' --type=merge`:: Replace `<name>` with the name of the `LVMVolumeGroup` CR.
+--
 
 . Delete any `LVMVolumeGroupNodeStatus` CRs by running the following command:
 +
@@ -92,6 +104,9 @@ $ oc delete lvmcluster --all
 +
 [source,terminal]
 ----
-$ oc patch lvmcluster <name> -p '{"metadata":{"finalizers":[]}}' --type=merge <1>
+$ oc patch lvmcluster <name> -p '{"metadata":{"finalizers":[]}}' --type=merge
 ----
-<1> Replace `<name>` with the name of the `LVMCluster` CR. 
++
+--
+`$ oc patch lvmcluster <name> -p '{"metadata":{"finalizers":[]}}' --type=merge`:: Replace `<name>` with the name of the `LVMCluster` CR.
+--
