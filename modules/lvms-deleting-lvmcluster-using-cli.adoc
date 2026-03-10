@@ -6,6 +6,7 @@
 [id="lvms-deleting-lvmcluster-using-cli_{context}"]
 = Deleting an LVMCluster CR by using the CLI
 
+[role="_abstract"]
 You can delete the `LVMCluster` custom resource (CR) using the OpenShift CLI (`oc`).
 
 .Prerequisites

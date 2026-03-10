@@ -6,6 +6,7 @@
 [id="lvms-reusing-vg-from-prev-installation_{context}"]
 = Reusing a volume group from the previous LVM Storage installation
 
+[role="_abstract"]
 You can reuse an existing volume group (VG) from the previous {lvms} installation instead of creating a new VG.
 
 You can only reuse a VG but not the logical volume associated with the VG.

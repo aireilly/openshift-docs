@@ -6,6 +6,7 @@
 [id="lvms-updating-lvms_{context}"]
 = Updating {lvms}
 
+[role="_abstract"]
 You can update {lvms} to ensure compatibility with the {product-title} version.
 
 [NOTE]
